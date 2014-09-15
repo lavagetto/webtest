@@ -1,4 +1,4 @@
-webunit
+webtest
 =======
 
 A web testing framework for the system administrator

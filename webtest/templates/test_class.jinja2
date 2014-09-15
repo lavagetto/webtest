@@ -1,0 +1,14 @@
+import unittest
+from webtest import record
+class TestWebUnitGen_{{ hst }}(unittest.TestCase):
+{% for test in tlist %}
+    def {{ test[0] }}_on_{{ hst }}(self):
+        r = record.WebtestRecord("{{ test[1] }}", "{{ host }}")
+        res = r.test()
+        # no headers missing from the new response
+        self.assertSetEqual(res[0], set([]))
+        # no headers added to the new response
+        self.assertSetEqual(res[1], set([]))
+        self.assertDictEqual(res[2], res[3])
+
+{% endfor %}
