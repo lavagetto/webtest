@@ -27,8 +27,6 @@ def gen_class(host, tests):
         fd.write(testclass)
         print("Test class generated")
 
-
-
 def main():
     hosts = sys.argv[1:]
     tests = generate(hosts[0])

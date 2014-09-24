@@ -9,6 +9,12 @@ class TestWebUnitGen_{{ hst }}(unittest.TestCase):
         self.assertSetEqual(res[0], set([]))
         # no headers added to the new response
         self.assertSetEqual(res[1], set([]))
-        self.assertDictEqual(res[2], res[3])
+        diff = {}
+        for k,v in res[2].iteritems():
+            new_v = res[3][k]
+            if new_v != v:
+               diff[k] = (v, new_v)
+        print(diff)
+        self.assertDictEqual(diff, {})
 
 {% endfor %}

@@ -27,13 +27,11 @@ class WebtestParams(object):
 
 def parse(txt, host):
     lines = txt.split("\n")
-    print lines
     description = lines.pop(0)
-    print description
     url = lines.pop(0)
     kwdargs = {}
     for line in lines:
-        if line.startswith('#'):
+        if line.startswith('#') or not line.strip():
             continue
         try:
             (k, v) = [l.strip() for l in line.split(':')]
@@ -54,7 +52,7 @@ class WebtestRecord(object):
     """
     A webtest record class. It is used to either store a record, or to fetch it from the repository
     """
-    _headers_blacklist = ['set-cookie', 'expires', 'x-varnish', 'x-cache']
+    _headers_blacklist = ['set-cookie', 'expires', 'x-varnish', 'x-cache', 'date', 'age']
 
     def __init__(self, name, host):
         self.record = name
