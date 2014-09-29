@@ -12,11 +12,14 @@ def generate(host):
             if name == ".gitignore":
                 continue
             print("Scanning record {}".format(name))
-            r = record.WebtestRecord(name, host)
-            # First, save the result of the fetch
-            r.save()
-            test_name = "test_{}".format(r.params.title)
-            tests.append((test_name, name))
+            try:
+                r = record.WebtestRecord(name, host)
+                # First, save the result of the fetch
+                r.save()
+                test_name = "test_{}".format(r.params.title)
+                tests.append((test_name, name))
+            except:
+                print("record {} malformed, skipping".format(name))
     return tests
 
 def gen_class(host, tests):

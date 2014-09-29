@@ -2,6 +2,7 @@ import requests
 import os
 import json
 from urlparse import urlparse
+import yaml
 
 storedir = os.path.join(os.path.dirname(__file__), 'fixtures')
 testsdir = os.path.join(storedir, 'records')
@@ -10,41 +11,28 @@ savedir = os.path.join(storedir, 'saved_requests')
 
 class WebtestParams(object):
 
-    def __init__(self, description, url, method='GET', http_host=None, extra_headers={}, body=None, **kwdargs):
+    def __init__(self, description, url, method='GET', http_host=None, cookies = {}, headers={}, body=None, **kwdargs):
         self.title = description
         self.url = url
         self.method = method
-        if extra_headers:
-            self.headers = json.loads(extra_headers)
-        else:
-            self.headers = {}
-        if body:
-            self.body = json.loads(body)
-        else:
-            self.body = None
+        self.cookies = cookies
+        self.headers = headers
+        self.body = body
         if http_host:
             self.headers['Host'] = http_host
 
 def parse(txt, host):
-    lines = txt.split("\n")
-    description = lines.pop(0)
-    url = lines.pop(0)
-    kwdargs = {}
-    for line in lines:
-        if line.startswith('#') or not line.strip():
-            continue
-        try:
-            (k, v) = [l.strip() for l in line.split(':')]
-            kwdargs[k] = v
-        except:
-            print("malformed line {}".format(line))
-
+    record = yaml.load(txt)
+    description = record['description']
+    url = record['url']
+    del record['description']
+    del record['url']
     parsed = urlparse(url)
     http_host = parsed.netloc.split(':')[0]
     if http_host != host:
         url.replace(http_host,host)
-        kwdargs['http_host'] = http_host
-    return WebtestParams(description, url, **kwdargs)
+        record['http_host'] = http_host
+    return WebtestParams(description, url, **record)
 
 
 
@@ -59,7 +47,11 @@ class WebtestRecord(object):
         self.filepath = os.path.join(testsdir, name)
         self.savepath = os.path.join(savedir, '{}_{}'.format(host, name))
         with open(self.filepath,'r') as fh:
-            self.params = parse(fh.read(), host)
+            try:
+                self.params = parse(fh.read(), host)
+            except:
+                print("unable to parse the record %s" % self.filepath)
+                raise
 
     def _fetch(self):
         try:
@@ -67,7 +59,8 @@ class WebtestRecord(object):
                 self.params.method,
                 self.params.url,
                 headers = self.params.headers,
-                data = self.params.body
+                data = self.params.body,
+                cookies = self.params.cookies,
             )
             resp = { 'status': r.status_code}
 
