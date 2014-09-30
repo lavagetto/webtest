@@ -40,7 +40,8 @@ class WebtestRecord(object):
     """
     A webtest record class. It is used to either store a record, or to fetch it from the repository
     """
-    _headers_blacklist = ['set-cookie', 'expires', 'x-varnish', 'x-cache', 'date', 'age']
+    _headers_blacklist = set(['set-cookie', 'expires', 'x-varnish', 'x-cache', 'date', 'age', 'last-modified'])
+    fuzzy_headers = set(['content-length', 'length'])
 
     def __init__(self, name, host):
         self.record = name

@@ -13,7 +13,14 @@ class TestWebUnitGen_{{ hst }}(unittest.TestCase):
         for k,v in res[2].iteritems():
             new_v = res[3][k]
             if new_v != v:
-               diff[k] = (v, new_v)
+               if k in r.fuzzy_headers:
+                   iv = int(v)
+                   inv = int(new_v)
+                   reldiff = (inv - iv)*(inv - iv)
+                   if reldiff > inv*inv*0.0004:
+                      diff[k] = (v, new_v)
+               else:
+                   diff[k] = (v, new_v)
         print(diff)
         self.assertDictEqual(diff, {})
 
