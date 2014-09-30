@@ -32,8 +32,8 @@ def gen_class(host, tests):
 
 def main():
     hosts = sys.argv[1:]
-    tests = generate(hosts[0])
     for host in hosts:
+        tests = generate(host)
         gen_class(host, tests)
 
 
