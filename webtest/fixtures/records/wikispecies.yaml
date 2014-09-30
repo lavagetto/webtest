@@ -1,0 +1,15 @@
+description: wikispecies_moffetta
+url: "http://species.wikimedia.org/wiki/Mephitis_mephitis"
+headers:
+  Connection: keep-alive
+  Cache-Control: max-age=0
+  Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36
+  Referer: http://species.wikimedia.org/w/index.php?search=moffetta&title=Special%3ASearch&go=Go
+  Accept-Encoding: gzip,deflate,sdch
+  Accept-Language: en-US,en;q=0.8,it;q=0.6
+cookies: 
+  hhvm: "true"
+  centralnotice_bucket: "0-4.2" 
+  uls-previous-languages: "%5B%22en%22%5D" 
+  mediaWiki.user.sessionId: "PByCNFjHKGN5f9t4kR2BpWkiT4Nkd7c7"

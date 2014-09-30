@@ -1,0 +1,12 @@
+url: http://bits.wikimedia.org/meta.wikimedia.org/load.php?debug=false&lang=en&modules=ext.globalCssJs.user&only=scripts&skin=vector&user=GLavagetto+%28WMF%29&version=20140929T074845Z&* 
+description: Css_from_bits
+headers:
+  Connection: "keep-alive"
+  Cache-Control: "max-age=0"
+  Accept: "*/*"
+  User-Agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36"
+  Referer: "https://en.wikipedia.org/wiki/Ch%C3%A2teau_de_L%27Isle-Adam"
+  Accept-Encoding: "gzip,deflate,sdch"
+  Accept-Language: "en-US,en;q=0.8,it;q=0.6"
+cookies:
+  hhvm: "true"
