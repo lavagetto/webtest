@@ -30,7 +30,7 @@ def parse(txt, host):
     parsed = urlparse(url)
     http_host = parsed.netloc.split(':')[0]
     if http_host != host:
-        url.replace(http_host,host)
+        url = url.replace(http_host, host)
         record['http_host'] = http_host
     return WebtestParams(description, url, **record)
 
