@@ -1,0 +1,18 @@
+description: Mediawiki_HHVM_about_talk_page
+url: 'http://www.mediawiki.org/wiki/Talk:HHVM/About'
+headers:
+  Connection: keep-alive
+  Cache-Control: max-age=0
+  Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  User-Agent: Mozilla/5.0 
+  Referer: https://www.mediawiki.org/wiki/HHVM/About
+  Accept-Encoding: gzip,deflate,sdch
+  Accept-Language: en-US,en;q=0.8,it;q=0.6
+  X-Forwarded-Proto: https
+
+cookies:
+  hhvm: "true"
+  centralnotice_bucket: "0-4.2"
+  forceHTTPS: "1"
+
+

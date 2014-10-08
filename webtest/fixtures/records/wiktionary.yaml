@@ -1,0 +1,16 @@
+description: Wiktionary_random_page
+url: http://it.wiktionary.org/wiki/fanfarone
+headers:
+  Connection: keep-alive
+  Cache-Control: max-age=0
+  Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36
+  Accept-Encoding: gzip,deflate,sdch
+  Accept-Language: en-US,en;q=0.8,it;q=0.6
+cookies:
+  hhvm: "true"
+  uls-previous-languages: "%5B%22it%22%5D"
+  centralnotice_bucket: "0-4.2"
+  forceHTTPS: "1"
+
+

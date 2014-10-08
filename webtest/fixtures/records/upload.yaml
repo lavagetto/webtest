@@ -1,0 +1,26 @@
+GET /wikipedia/commons/thumb/1/1a/Giuseppe_Mazzini.jpg/220px-Giuseppe_Mazzini.jpg HTTP/1.1
+
+Host: upload.wikimedia.org
+
+Connection: keep-alive
+
+Cache-Control: max-age=0
+
+Accept: image/webp,*/*;q=0.8
+
+If-None-Match: 29b7accc1d02bf7a1a3fd37fc19f94bd
+
+If-Modified-Since: Tue, 22 Oct 2013 22:08:01 GMT
+
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36
+
+Referer: https://en.wikiquote.org/wiki/Karl_Marx
+
+Accept-Encoding: gzip,deflate,sdch
+
+Accept-Language: en-US,en;q=0.8,it;q=0.6
+
+Cookie: _ga=GA1.2.893595222.1409155203; GeoIP=IT:Rome:41.9000:12.4833:v4
+
+
+
